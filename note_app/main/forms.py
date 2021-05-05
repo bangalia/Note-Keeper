@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SelectField, SubmitField, FloatField, TextAreaField, SubmitField, PasswordField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, URL, ValidationError
-from app.models import Note, Reminder, User
+from note_app.models import Note, Reminder, User
 
 class NoteForm(FlaskForm):
     title = StringField('Note Title',

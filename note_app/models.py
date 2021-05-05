@@ -1,5 +1,5 @@
 from sqlalchemy_utils import URLType
-from app import db 
+from note_app import db 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date, datetime
 from sqlalchemy.orm import backref
@@ -24,7 +24,6 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False, unique=True)
     password = db.Column(db.String(200), nullable=False)
-    flagged_notes = db.relationship('Note', secondary='user_note', back_populates='users_flagged_notes')
 
     def __repr__(self):
         return f'<User: {self.username}>'  
