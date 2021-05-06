@@ -1,11 +1,10 @@
 from flask import Blueprint
-from datetime import date, datetime
 from note_app.models import Note, Reminder, User
 from flask_login import login_user, logout_user, login_required, current_user
 from note_app import bcrypt
 
 from note_app import app, db
-from note_app.forms import NoteForm, SignUpForm, LoginForm
+
 
 auth = Blueprint('auth', __name__)
 
