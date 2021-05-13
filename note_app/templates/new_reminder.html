@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Reminder</h1>
+
+<form method="POST" action="{{ url_for('main.new_reminder') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+        {% include 'reminder.html' %}
+
+    </fieldset>
+</form>
+
+
+{% endblock %}
