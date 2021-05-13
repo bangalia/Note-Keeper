@@ -14,8 +14,8 @@
             <nav>
                 <a href="/">Home</a>
                 <div>
-                    {% if current_user.is_authenticated %}
                     <a href="/new_note">New Note</a>
+                    {% if current_user.is_authenticated %}
                     <a href="/new_reminder">New Reminder</a>
                     <a href="/logout">Logout</a>
                     {% else %}

@@ -1,5 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
-import requests
+from flask import Blueprint, request, render_template, redirect, url_for, flash
 from note_app.auth.forms import SignUpForm, LoginForm
 from note_app.models import Note, Reminder, User
 from flask_login import login_user, logout_user, login_required, current_user, UserMixin
@@ -45,7 +44,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=True)
-            next_page = request.args.get('next')
+            next_page = request.arg.get('next')
             return redirect(next_page if next_page else url_for('main.homepage'))
     return render_template('login.html', form=form)
 

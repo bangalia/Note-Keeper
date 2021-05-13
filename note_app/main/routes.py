@@ -15,7 +15,6 @@ def homepage():
     return render_template('base.html', all_notes=all_notes)
 
 @main.route('/new_note', methods=['GET', 'POST'])
-@login_required
 def new_note():
     #Creates a Note Form
     form= NoteForm()
@@ -29,8 +28,8 @@ def new_note():
         db.session.commit()
 
         flash('New Note was created successfully!')
-        return redirect(url_for('new_note'))
-    return render_template('new_note.html')
+        return redirect(url_for('main.new_note'))
+    return render_template('new_note.html', form=form)
 
 @main.route('/new_reminder', methods=['GET', 'POST'])
 @login_required
@@ -48,6 +47,6 @@ def new_reminder():
         db.session.commit()
 
         flash('New reminder was saved successfully!')
-        return redirect(url_for('reminder'))
+        return redirect(url_for('main.new_reminder'))
     
     return render_template('new_reminder.html')
