@@ -11,8 +11,10 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def homepage():
     all_notes = Note.query.all()
+    all_reminders = Reminder.query.all()
     print(all_notes)
-    return render_template('base.html', all_notes=all_notes)
+    print(all_reminders)
+    return render_template('home.html', all_notes=all_notes, all_reminders=all_reminders)
 
 @main.route('/new_note', methods=['GET', 'POST'])
 def new_note():

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<p><em>Forgetful? We can help</em></p>
+
+<h2>Notes</h2>
+
+{% for note in all_notes %}
+    <li><a href="/note/{{ note.id }}">{{ note.title }}</a></li>
+{% endfor %}
+
+<h2>Reminders</h2>
+
+<ul>
+{% for reminder in all_reminder %}
+    <li><a href="/reminder/{{ reminder.id }}">{{ reminder.content }}</a></li>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}
