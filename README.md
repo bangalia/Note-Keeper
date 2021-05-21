@@ -1,3 +1,3 @@
 # My Project
 
-Add project description here.
+This is my note keeper project for notes and reminders.
