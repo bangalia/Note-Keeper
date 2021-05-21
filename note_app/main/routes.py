@@ -34,7 +34,6 @@ def new_note():
     return render_template('new_note.html', form=form)
 
 @main.route('/new_reminder', methods=['GET', 'POST'])
-@login_required
 def new_reminder():
     #Creates a Reminder Form
     form= ReminderForm()
@@ -51,4 +50,4 @@ def new_reminder():
         flash('New reminder was saved successfully!')
         return redirect(url_for('main.new_reminder'))
     
-    return render_template('new_reminder.html')
+    return render_template('new_reminder.html', form=form)

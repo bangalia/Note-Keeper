@@ -14,8 +14,9 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def homepage():
     all_notes = Note.query.all()
+    all_reminders = Reminder.query.all()
     print(all_notes)
-    return render_template('base.html', all_notes=all_notes)
+    return render_template('home.html', all_notes=all_notes, all_reminders=all_reminders)
     
 
 @auth.route('/signup', methods=['GET', 'POST'])
@@ -46,7 +47,7 @@ def login():
             login_user(user, remember=True)
             next_page = request.arg.get('next')
             return redirect(next_page if next_page else url_for('main.homepage'))
-    return render_template('login.html', form=form)
+    return render_template('home.html', form=form)
 
 
 @auth.route('/logout')
